@@ -8,4 +8,7 @@ export class Event extends AbstractEntity {
 
   @Column('timestamp with time zone')
   date: Date;
+
+  @Column()
+  date2: Date;
 }
