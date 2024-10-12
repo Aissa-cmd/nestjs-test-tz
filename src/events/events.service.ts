@@ -22,6 +22,7 @@ export class EventsService {
       return this.eventsRepository.save(event);
     } catch (error) {
       this.logger.error(error);
+      throw error;
     }
   }
 
@@ -30,7 +31,16 @@ export class EventsService {
   }
 
   findOne(id: string) {
-    return `This action returns a #${id} event`;
+    try {
+      const event = this.eventsRepository.findOneBy({ id });
+      if (!event) {
+        throw new NotFoundException(`Event with id ${id} not found`);
+      }
+      return event;
+    } catch (error) {
+      this.logger.log(error);
+      throw error;
+    }
   }
 
   async update(id: string, updateEventDto: UpdateEventDto) {
@@ -45,6 +55,7 @@ export class EventsService {
       return this.eventsRepository.save(event);
     } catch (error) {
       this.logger.error(error);
+      throw error;
     }
   }
 
@@ -53,6 +64,7 @@ export class EventsService {
       return this.eventsRepository.delete(id);
     } catch (error) {
       this.logger.error(error);
+      throw error;
     }
   }
 }
