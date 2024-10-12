@@ -8,4 +8,8 @@ export class CreateEventDto {
   @IsDateString()
   @IsNotEmpty()
   date: Date;
+
+  @IsDateString()
+  @IsNotEmpty()
+  date2: Date;
 }
