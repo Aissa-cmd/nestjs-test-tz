@@ -11,4 +11,10 @@ export class Event extends AbstractEntity {
 
   @Column()
   date2: Date;
+
+  @Column()
+  startTime: string;
+
+  @Column()
+  endTime: string;
 }
