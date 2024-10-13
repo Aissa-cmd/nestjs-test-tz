@@ -12,9 +12,9 @@ export class Event extends AbstractEntity {
   @Column()
   date2: Date;
 
-  @Column()
+  @Column({ nullable: true })
   startTime: string;
 
-  @Column()
+  @Column({ nullable: true })
   endTime: string;
 }
